@@ -1,6 +1,7 @@
+// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-const specialCharacters = "!@#$%^&*()";
+
 const generateButton = document.getElementById('generateBtn')
 
 // Write password to the #password input
@@ -17,86 +18,45 @@ generateBtn.addEventListener("click", writePassword);
 
 
 function generatePassword() {
-  var passwordLength = prompt("Please enter the number of characters you want for you new password.  *MUST BE BETWEEN 8 and 128 Characters");
+  const passwordLength = prompt("Please enter the number of characters you want for you new password.  *MUST BE BETWEEN 8 and 128 Characters");
+     
+  var numberchars = confirm("Do you want numbers in your password?");
 
-  var numbers = confirm("Do you want numbers in your password?");
+  var includedlowerCases = confirm("Do you want lowercases in your password?");
 
-  var lowerCases = confirm("Do you want lowercases in your password?");
+  var includeupperCases = confirm("Do you want uppercases in your password?");
 
-  var upperCases = confirm("Do you want uppercases in your password?");
-
-  var special = confirm("Do you want special characters in your password?");
-
-  let minimuncharacters = 0;
-  let maximumcharacters = 128;
-  let minimumNumbers = "";
-  let minimumLowerCases = "";
-  let minimumUpperCases = "";
-  let minimumSpecialCharacters = "";
-
-  const generator = {
-    getNumbers: function() {
-      return String.fromCharCode(Math.floor(Math.random() * 10 + 48));
-    },
-
-    getLowerCases: function() {
-      return String.fromCharCode(Math.floor(Math.random() * 26 + 97));
-    },
-
-    getUpperCases: function() {
-      return String.fromCharCode(Math.floor(Math.random() * 26 + 65));
-    },
-
-    getSpecialCharacters: function() {
-      return specialCharacters[Math.floor(Math.random() * specialCharacters.length)]
-    }
-  }
-
-  if (numbers === true) {
-    minimumNumbers = functionArray.getNumbers();
-    minimumCount++;
-
-  }
-
-  if (lowerCases === true) {
-    minimumLowerCases = functionArray.getLowerCases();
-    minimumCount++;
-
-  }
-
-  if (upperCases === true) {
-    minimumUpperCases = functionArray.getUpperCases();
-    minimumCount++;
-
-  }
-
-  if (special === true) {
-    minimumSpecialCharacters = functionArray.getSpecialCharacters();
-    minimumCount++;
-
-  }
+  var includedspecial = confirm("Do you want special characters in your password?");
 
 
-   var randomPasswordGenerated = "";
+  const numbers = ["1","2","3","4","5","6","7","8","9","0"];
+  
+  const lowercases = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  
+  const uppercases = ["A","B","C","D","E","F","G","H","J","K","l","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
-   for (let i = 0; i < (parseInt(passwordLength) - minimumCount); i++) {
-    var randomNumberPicked = Math.floor(Math.random() * 4);
-
-    randomPasswordGenerated += randomNumberPicked;
-
-  }
-
-  // to make sure characters are added to the password
-  randomPasswordGenerated += minimumNumbers;
-  randomPasswordGenerated += minimumLowerCases;
-  randomPasswordGenerated += minimumUpperCases;
-  randomPasswordGenerated += minimumSpecialCharacters;
-
-
-  return randomPasswordGenerated;
+  const specialCharacters = ["!","@","#","$","%","&","*"];
    
+  let allcharacters = numbers.concat(lowercases, uppercases, specialCharacters) ;
+  let charLength = Math.floor(Math.random()[7,127]);
+  
+ console.log(allcharacters)  
 
-for (let index = 0; index < array.length; index++) {
-  const element = array[index];
-}       
 
+  function createpassword() {
+    let password = "";
+    
+     for (let i= 0; i < passwordLength; i++){
+      
+      password += allcharacters[Math.floor(Math.random() * allcharacters.length)]
+     }
+     
+     return password}
+
+
+  while(length = charLength) {
+    password += allcharacters[Math.floor(Math.random() * allcharacters.lengh)]
+  }
+return createpassword()
+
+}
